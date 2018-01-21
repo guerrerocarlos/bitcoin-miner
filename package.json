@@ -1,0 +1,36 @@
+{
+	"name": "bitcoin-miner",
+	"version": "1.0.0",
+	"description": "Bitcoin Miner",
+	"license": "MIT",
+	"repository": "guerrerocarlos/bitcoin-miner",
+	"author": {
+		"name": "Carlos Guerrero",
+		"email": "guerrerocarlos@gmail.com",
+		"url": "carlosguerrero.com"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"bitcoin",
+		"mining",
+		"miner",
+		"sha256",
+		"nonce",
+		"native",
+		"js",
+		"javascript",
+		"nodejs"
+	],
+	"devDependencies": {
+		"ava": "*",
+		"xo": "*"
+	}
+}
