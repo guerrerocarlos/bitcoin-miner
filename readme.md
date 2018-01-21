@@ -27,7 +27,7 @@ const block = {
 
 const miner = new BTCMiner(block);
 
-let nonce = 856000000;
+let nonce = 856000000; // Arbitrary value to make the example execution shorter
 
 let found = false;
 while (nonce < 856192330 && !found) {
