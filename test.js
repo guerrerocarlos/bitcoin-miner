@@ -16,13 +16,11 @@ const miner = new BTCMiner(block);
 const nonce = 856192328;
 
 test('Get Block Difficulty Target', t => {
-	const target = miner.getTarget();
-	t.deepEqual(target.toString('hex'), '00000000000000015f5300000000000000000000000000000000000000000000');
+	t.deepEqual(miner.getTarget().toString('hex'), '00000000000000015f5300000000000000000000000000000000000000000000');
 });
 
 test('Get block hash', t => {
-	const hash = miner.getHash(nonce);
-	t.deepEqual(hash.toString('hex'), '0000000000000000e067a478024addfecdc93628978aa52d91fabd4292982a50');
+	t.deepEqual(miner.getHash(nonce).toString('hex'), '0000000000000000e067a478024addfecdc93628978aa52d91fabd4292982a50');
 });
 
 test('Verify that hash is less than target', t => {

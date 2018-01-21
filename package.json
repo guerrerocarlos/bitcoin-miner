@@ -7,13 +7,14 @@
 	"author": {
 		"name": "Carlos Guerrero",
 		"email": "guerrerocarlos@gmail.com",
-		"url": "carlosguerrero.com"
+		"url": "https://carlosguerrero.com"
 	},
 	"engines": {
 		"node": ">=8"
 	},
 	"scripts": {
-		"test": "xo && ava"
+		"test": "xo && ava",
+		"coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
 	},
 	"files": [
 		"index.js"
@@ -31,6 +32,8 @@
 	],
 	"devDependencies": {
 		"ava": "*",
+		"coveralls": "^3.0.0",
+		"nyc": "^11.4.1",
 		"xo": "*"
 	}
 }
