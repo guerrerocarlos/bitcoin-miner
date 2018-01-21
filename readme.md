@@ -58,7 +58,7 @@ Returns a `Boolean` with **true** if the hash is lower than the target and vicev
 ## Related
 
 - [Bitcoin mining the hard way: the algorithms, protocols, and bytes](http://www.righto.com/2014/02/bitcoin-mining-hard-way-algorithms.html) - Inspiration for this module.
-- [What is (bitcoin) "difficulty"](https://en.bitcoin.it/wiki/Difficulty#What_is_the_formula_for_difficulty) - To understand how is Difficulty calculated.
+- [What is (bitcoin) "difficulty"](https://en.bitcoin.it/wiki/Difficulty#What_is_the_formula_for_difficulty) - To understand Bitcoin Difficulty calculations.
 
 
 ## License
