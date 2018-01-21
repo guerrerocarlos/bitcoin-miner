@@ -1,5 +1,5 @@
 const test = require('ava');
-const bitcoinminer = require('.');
+const BTCMiner = require('.');
 
 const block = {
 	hash: '0000000000000000e067a478024addfecdc93628978aa52d91fabd4292982a50',
@@ -11,22 +11,20 @@ const block = {
 	nextblockhash: '0000000000000000b0f08ec6a3d1e84994498ecf993a9981f57982cfdb66c443'
 };
 
-const miner = bitcoinminer(block);
+const miner = new BTCMiner(block);
 
 const nonce = 856192328;
 
 test('Get Block Difficulty Target', t => {
 	const target = miner.getTarget();
-	t.deepEqual(target.toString(16), '15f5300000000000000000000000000000000000000000000');
+	t.deepEqual(target.toString('hex'), '00000000000000015f5300000000000000000000000000000000000000000000');
 });
 
 test('Get block hash', t => {
-	const hash = miner.hash(nonce);
+	const hash = miner.getHash(nonce);
 	t.deepEqual(hash.toString('hex'), '0000000000000000e067a478024addfecdc93628978aa52d91fabd4292982a50');
 });
 
 test('Verify that hash is less than target', t => {
-	const hash = miner.hash(nonce);
-	const target = miner.getTarget();
-	t.true(hash < target);
+	t.true(miner.checkHash(Buffer.from('0000000000000000e067a478024addfecdc93628978aa52d91fabd4292982a50', 'hex')));
 });
