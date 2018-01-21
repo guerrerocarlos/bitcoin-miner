@@ -11,9 +11,12 @@ $ npm install bitcoin-miner
 
 ## Usage
 
+
+
 ```js
 const BTCMiner = require('bitcoin-miner');
 
+// https://insight.bitpay.com/block/0000000000000000e067a478024addfecdc93628978aa52d91fabd4292982a50
 const block = {
 	version: 2,
 	previousblockhash: '000000000000000117c80378b8da0e33559b5997f2ad55e2f7d18ec1975b9717',
