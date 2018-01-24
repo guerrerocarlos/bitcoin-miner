@@ -45,7 +45,7 @@ while (nonce < 856192330 && !found) {
 
 ### getTarget()
 
-Returns the target `Buffer` for that block based on it's **bits**.
+Returns the target `Buffer` for that block based on it's **bits** (difficulty).
 
 ### getHash(nonce)
 
