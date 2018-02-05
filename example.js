@@ -12,7 +12,7 @@ const testBlocks = [
 			time: 1392872245,
 			bits: '19015f53'
 		},
-		initialNonce: 856192320 // correct nonce will be:  856192328
+		initialNonce: 856192320 // Correct nonce will be:  856192328
 	},
 	// Example Version 02000000 block
 	// Web Explorer:  https://insight.bitpay.com/block/00000000000000000020cf2bdc6563fb25c424af588d5fb7223461e72715e4a9
@@ -20,24 +20,25 @@ const testBlocks = [
 	{
 		block: {
 			version: 536870912,
-			previousblockhash: "00000000000000000061abcd4f51d81ddba5498cff67fed44b287de0990b7266",
-			merkleroot: "871148c57dad60c0cde483233b099daa3e6492a91c13b337a5413a4c4f842978",
+			previousblockhash: '00000000000000000061abcd4f51d81ddba5498cff67fed44b287de0990b7266',
+			merkleroot: '871148c57dad60c0cde483233b099daa3e6492a91c13b337a5413a4c4f842978',
 			time: 1515252561,
-			bits: "180091c1",
+			bits: '180091c1'
 		},
-		initialNonce: 45291990 // correct nonce will be: 45291998
+		initialNonce: 45291990 // Correct nonce will be: 45291998
 	}
-]
+];
 
-
-selectedBlock = 1 // CHANGE THIS TO 1 to execute the example with the second block
-let block = testBlocks[selectedBlock].block
-let nonce = testBlocks[selectedBlock].initialNonce
+const selectedBlock = 1; // CHANGE THIS TO 1 to execute the example with the second block
+const block = testBlocks[selectedBlock].block;
+let nonce = testBlocks[selectedBlock].initialNonce;
 
 const miner = new BTCMiner(block);
 
 // Calculate the target based on current dificulty for this block (block.bits)
 const target = miner.getTarget();
+console.log('Target for this block is:');
+console.log(target.toString('hex'));
 // Since it's just a demonstration example,
 // lets start with an nonce closer to the final result (856192328), so it takes less time
 
@@ -47,8 +48,8 @@ while (nonce < 8561950000 && !found) {
 	hash = miner.getHash(nonce);
 	found = miner.checkHash(hash);
 	console.log(hash.toString('hex'), nonce, found ? '<- nonce FOUND!!' : '');
-	if(found){
-		miner.verifyNonce(block, nonce)
+	if (found) {
+		miner.verifyNonce(block, nonce);
 	}
 	nonce++;
 }
