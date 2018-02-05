@@ -1,6 +1,6 @@
 {
 	"name": "bitcoin-miner",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Bitcoin Miner",
 	"license": "MIT",
 	"repository": "guerrerocarlos/bitcoin-miner",
