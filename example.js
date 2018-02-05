@@ -39,8 +39,6 @@ const miner = new BTCMiner(block);
 const target = miner.getTarget();
 console.log('Target for this block is:');
 console.log(target.toString('hex'));
-// Since it's just a demonstration example,
-// lets start with an nonce closer to the final result (856192328), so it takes less time
 
 let hash;
 let found = false;
