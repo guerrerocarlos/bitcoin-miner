@@ -55,6 +55,10 @@ Returns the sha256sha256 hash `Buffer` for that block's **nonce**.
 
 Returns a `Boolean` with **true** if the hash is lower than the target and viceversa.
 
+### checkHash(block, hash)
+
+Print colored verification of the *hash* against the *target* on the console (the code shows another way to build the block header in javascript).
+
 
 ## Related
 
