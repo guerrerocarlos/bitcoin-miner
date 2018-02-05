@@ -22,7 +22,7 @@ class Miner {
 
 		// Create little-endian long int (4 bytes) with the version (2) on the first byte
 		this.versionBuffer = Buffer.alloc(4);
-		this.versionBuffer[0] = ver;
+		this.versionBuffer.writeInt32LE(ver, 0);
 
 		// Reverse the previous Block Hash and the merkle_root
 		this.reversedPrevBlockHash = this.reverseBuffer(prevBlockHash);
@@ -56,6 +56,35 @@ class Miner {
 		this.timeBitsNonceBuffer.writeInt32LE(nonce, 8);
 		// Double sha256 hash the header
 		return this.reverseBuffer(this.sha256sha256(Buffer.concat([this.versionBuffer, this.reversedPrevBlockHash, this.reversedMrklRoot, this.timeBitsNonceBuffer])));
+	}
+
+	reverseString(str) {
+		if(str.length < 8){ // Make sure the HEX value from the integers fill 4 bytes when converted to buffer, so that they are reversed correctly
+			str = '0'.repeat(8-str.length) +str
+		}
+		return this.reverseBuffer(Buffer.from(str, 'hex')).toString('hex')
+	}
+
+	verifyNonce(block, checknonce) {
+		// This is another way to build the header from scratch (just for learning purposes) it should generate the same hash
+		var chalk = require('chalk')
+		let version = this.reverseString(block.version.toString(16))
+		let prevhash = this.reverseString(block.previousblockhash)
+		let merkle_root = this.reverseString(block.merkleroot)
+		let nbits = this.reverseString(block.bits)
+		let ntime = this.reverseString(block.time.toString(16))
+		let nonce = this.reverseString(checknonce.toString(16))
+		console.log('\nHeader: ', chalk.gray(version) + chalk.cyanBright(prevhash) + chalk.blue(merkle_root) + chalk.magenta(ntime) + chalk.cyan(nbits)  + chalk.yellow(nonce) )
+		
+		let header = version + prevhash + merkle_root + ntime + nbits  + nonce 
+		let hash = this.reverseString(this.sha256sha256(Buffer.from(header, 'hex')))
+		console.log('Target: ', this.getTarget().toString('hex'))
+		console.log('Hash:   ', hash.toString('hex'))
+
+		var isvalid = this.getTarget().toString('hex') > hash 
+		let result = isvalid ? 'valid' : 'not a valid'
+		let color = isvalid ? chalk.green : chalk.red
+		console.log('Result: ', color(`${checknonce} is a ${result} nonce`))
 	}
 
 	getTarget() {
