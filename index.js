@@ -68,7 +68,7 @@ class Miner {
 
 	verifyNonce(block, checknonce) {
 		// This is a (maybe easier) way to build the header from scratch, it should generate the same hash:
-		console.log(`\n[Verify Nonce ${checknonce}]`)
+		console.log(`\n[Verify Nonce ${checknonce}]`);
 		const version = this.reverseString(block.version.toString(16));
 		const prevhash = this.reverseString(block.previousblockhash);
 		const merkleroot = this.reverseString(block.merkleroot);
@@ -88,6 +88,7 @@ class Miner {
 		const result = isvalid ? 'valid' : 'not a valid';
 		const color = isvalid ? chalk.green : chalk.red;
 		console.log('Result: ', color(`${checknonce} is a ${result} nonce`));
+		return isvalid;
 	}
 
 	getTarget() {
