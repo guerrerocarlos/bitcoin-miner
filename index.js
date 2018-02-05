@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+const chalk = require('chalk');
 
 class Miner {
 	constructor(block) {
@@ -67,14 +68,16 @@ class Miner {
 
 	verifyNonce(block, checknonce) {
 		// This is a (maybe easier) way to build the header from scratch, it should generate the same hash:
-		const chalk = require('chalk');
+		console.log(`\n[Verify Nonce ${checknonce}]`)
 		const version = this.reverseString(block.version.toString(16));
 		const prevhash = this.reverseString(block.previousblockhash);
 		const merkleroot = this.reverseString(block.merkleroot);
 		const nbits = this.reverseString(block.bits);
 		const ntime = this.reverseString(block.time.toString(16));
 		const nonce = this.reverseString(checknonce.toString(16));
-		console.log('\nHeader: ', chalk.gray(version) + chalk.cyanBright(prevhash) + chalk.blue(merkleroot) + chalk.magenta(ntime) + chalk.cyan(nbits) + chalk.yellow(nonce));
+
+		console.log('        ', chalk.gray('version') + ' '.repeat(version.length - 7) + chalk.cyanBright('prevhash') + ' '.repeat(prevhash.length - 8) + chalk.blue('merkleroot') + ' '.repeat(prevhash.length - 10) + chalk.magenta('ntime') + ' '.repeat(ntime.length - 5) + chalk.cyan('nbits') + ' '.repeat(nbits.length - 5) + chalk.yellow('nonce'));
+		console.log('Header: ', chalk.gray(version) + chalk.cyanBright(prevhash) + chalk.blue(merkleroot) + chalk.magenta(ntime) + chalk.cyan(nbits) + chalk.yellow(nonce));
 
 		const header = version + prevhash + merkleroot + ntime + nbits + nonce;
 		const hash = this.reverseString(this.sha256sha256(Buffer.from(header, 'hex')));

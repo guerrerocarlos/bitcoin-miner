@@ -29,7 +29,7 @@ const testBlocks = [
 	}
 ];
 
-const selectedBlock = 0; // CHANGE THIS TO 1 to execute the example with the second block
+const selectedBlock = 1; // CHANGE THIS TO 1 to execute the example with the second block
 const block = testBlocks[selectedBlock].block;
 let nonce = testBlocks[selectedBlock].initialNonce;
 
@@ -37,11 +37,13 @@ const miner = new BTCMiner(block);
 
 // Calculate the target based on current dificulty for this block (block.bits)
 const target = miner.getTarget();
-console.log('Target for this block is:');
+console.log('The target for this block is:');
 console.log(target.toString('hex'));
 
 let hash;
 let found = false;
+
+console.log('\n[Start Mining with initial nonce:', nonce, ']');
 while (nonce < 8561950000 && !found) {
 	hash = miner.getHash(nonce);
 	found = miner.checkHash(hash);
