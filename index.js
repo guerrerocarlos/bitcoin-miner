@@ -66,7 +66,7 @@ class Miner {
 	}
 
 	verifyNonce(block, checknonce) {
-		// This is another way to build the header from scratch (just for learning purposes) it should generate the same hash
+		// This is a (maybe easier) way to build the header from scratch, it should generate the same hash:
 		const chalk = require('chalk');
 		const version = this.reverseString(block.version.toString(16));
 		const prevhash = this.reverseString(block.previousblockhash);
