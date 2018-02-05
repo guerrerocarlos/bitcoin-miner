@@ -1,4 +1,4 @@
-# bitcoin-miner [![Build Status](https://travis-ci.org/guerrerocarlos/bitcoin-miner.svg?branch=master)](https://travis-ci.org/guerrerocarlos/bitcoin-miner) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo) [![Coverage Status](https://coveralls.io/repos/github/guerrerocarlos/bitcoin-miner/badge.svg?branch=master)](https://coveralls.io/github/guerrerocarlos/bitcoin-miner?branch=master) [![Build status](https://ci.appveyor.com/api/projects/status/lvq1mnsbdo8l2cv4?svg=true)](https://ci.appveyor.com/project/guerrerocarlos/bitcoin-miner)
+# bitcoin-miner [![Build Status](https://travis-ci.org/guerrerocarlos/bitcoin-miner.svg?branch=master)](https://travis-ci.org/guerrerocarlos/bitcoin-miner) [![Coverage Status](https://coveralls.io/repos/github/guerrerocarlos/bitcoin-miner/badge.svg?branch=master)](https://coveralls.io/github/guerrerocarlos/bitcoin-miner?branch=master) [![Build status](https://ci.appveyor.com/api/projects/status/lvq1mnsbdo8l2cv4?svg=true)](https://ci.appveyor.com/project/guerrerocarlos/bitcoin-miner) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 
 > Super-slow yet very educative Bitcoin miner (BTC/BCH) in Javascript
@@ -45,7 +45,7 @@ while (nonce < 856192330 && !found) {
 
 ### getTarget()
 
-Returns the target `Buffer` for that block based on it's **bits**.
+Returns the target `Buffer` for that block based on it's **bits** (difficulty).
 
 ### getHash(nonce)
 
