@@ -29,7 +29,7 @@ const testBlocks = [
 	}
 ];
 
-const selectedBlock = 1; // CHANGE THIS TO 1 to execute the example with the second block
+const selectedBlock = 0; // CHANGE THIS TO 1 to use the second testBlock
 const block = testBlocks[selectedBlock].block;
 let nonce = testBlocks[selectedBlock].initialNonce;
 
