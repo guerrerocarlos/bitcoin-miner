@@ -30,7 +30,7 @@ const testBlocks = [
 ];
 
 const selectedBlock = 0; // CHANGE THIS TO 1 to use the second testBlock
-const { block } = testBlocks[selectedBlock];
+const {block} = testBlocks[selectedBlock];
 let nonce = testBlocks[selectedBlock].initialNonce;
 
 const miner = new BTCMiner(block);
