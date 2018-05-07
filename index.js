@@ -6,7 +6,7 @@ class Miner {
 		// Initialize local variables with Block data
 		const prevBlockHash = Buffer.from(block.previousblockhash, 'hex');
 		const mrklRoot = Buffer.from(block.merkleroot, 'hex');
-		const { time, version } = block;
+		const { time, ver } = block;
 
 		// Calculate target based on block's "bits",
 		// The "bits" variable is a packed representation of the Difficulty in 8 bytes, to unpack it:
