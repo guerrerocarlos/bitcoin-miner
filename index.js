@@ -6,7 +6,7 @@ class Miner {
 		// Initialize local variables with Block data
 		const prevBlockHash = Buffer.from(block.previousblockhash, 'hex');
 		const mrklRoot = Buffer.from(block.merkleroot, 'hex');
-		const { time, version } = block;
+		const {time, version} = block;
 
 		// Calculate target based on block's "bits",
 		// The "bits" variable is a packed representation of the Difficulty in 8 bytes, to unpack it:
@@ -22,7 +22,7 @@ class Miner {
 
 		// Create little-endian long int (4 bytes) with the version (2) on the first byte
 		this.versionBuffer = Buffer.alloc(4);
-		this.versionBuffer.writeInt32LE(ver, 0);
+		this.versionBuffer.writeInt32LE(version, 0);
 
 		// Reverse the previous Block Hash and the merkle_root
 		this.reversedPrevBlockHash = this.reverseBuffer(prevBlockHash);
