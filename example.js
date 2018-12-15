@@ -35,7 +35,7 @@ let nonce = testBlocks[selectedBlock].initialNonce;
 
 const miner = new BTCMiner(block);
 
-// Calculate the target based on current dificulty for this block (block.bits)
+// Calculate the target based on current difficulty for this block (block.bits)
 const target = miner.getTarget();
 console.log('The target for this block is:');
 console.log(target.toString('hex'));
